@@ -5,7 +5,7 @@ The official Python library for the Audiomatic API
 ## Installation
 
 ```bash
-pip install audiomatic
+pip install -U audiomatic
 ```
 
 ## Quick Start
@@ -103,7 +103,8 @@ Check the status of a translation project.
 
 - Maximum file size: 500MB
 - Maximum video duration: 15 minutes
-- Supported accent levels: 0, 0.25, 0.5, 0.75, 1
+- Supported languages: ['en', 'fr', 'es', 'de', 'pt', 'zh', 'ja', 'hi', 'it', 'ko', 'nl', 'pl', 'ru', 'sv', 'tr']
+- Supported accent levels:[0, 0.25, 0.5, 0.75, 1]
 
 ## Error Handling
 

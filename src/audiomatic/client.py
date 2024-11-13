@@ -56,7 +56,7 @@ class Audiomatic:
             raise ValueError(f"API version must be one of: {self.API_VERSIONS}")
 
         self.api_version = api_version
-        self.base_url = f"https://audiomatic.com/api/{api_version}"
+        self.base_url = f"https://audiomatic.app/api/{api_version}"
 
         self.api_key = api_key
         self.session = requests.Session()
