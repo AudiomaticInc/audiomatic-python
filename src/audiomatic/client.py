@@ -1,4 +1,4 @@
-from typing import Optional, Dict, Tuple, Any
+from typing import Optional, List, Dict, Tuple, Any
 from pathlib import Path
 
 import os
@@ -342,3 +342,46 @@ class Audiomatic:
         )
 
         return status, result_url
+    
+    def get_all_projects(self) -> List[Dict[str, str]]:
+        """Gets all projects associated with the current API key.
+        
+        Makes a POST request to the 'get-all-projects' endpoint to retrieve all projects
+        associated with the provided API key.
+        
+        Args:
+            None
+            
+        Returns:
+            List[Dict[str, str]]: A list of project dictionaries, where each dictionary contains:
+                - projectID (str): Unique identifier for the project
+                - projectName (str): Name of the project
+                - createdAt (str): ISO format timestamp of project creation (UTC)
+                
+        Raises:
+            AudiomaticError: If the API request fails or returns an invalid response.
+       """
+
+        projects_data = self._make_request(
+            "POST", "get-all-projects", {"APIKey": self.api_key}
+        )
+        projects = projects_data.get("projects", "not found")
+
+        return projects
+
+    def delete_project(self, project_id: str) -> None:
+        """Deletes a project.
+        
+        Args:
+            project_id (str): The project ID returned from translate().
+            
+        Returns:
+            None
+                
+        Raises:
+            AudiomaticError: If the API request fails.
+        """
+        self._make_request(
+            "POST", "delete-project", {"APIKey": self.api_key, "projectID": project_id}
+        )
+        return
