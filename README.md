@@ -99,6 +99,27 @@ Check the status of a translation project.
 
 **Returns:** Tuple of (status, result_url)
 
+#### `get_all_projects() -> List[Dict[str, str]]`
+
+Gets all projects associated with the current API key.
+
+**Parameters:**
+- None
+
+**Returns:** List of project dictionaries, where each dictionary contains:
+- `projectID` (str): Unique identifier for the project
+- `projectName` (str): Name of the project
+- `createdAt` (str): ISO format timestamp of project creation (UTC)
+
+#### `delete_project(project_id: str) -> None`
+
+Deletes a translation project.
+
+**Parameters:**
+- `project_id` (str): Project ID returned from translate()
+
+**Returns:** None
+
 ## Limitations
 
 - Maximum file size: 500MB
